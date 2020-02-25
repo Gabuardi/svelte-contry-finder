@@ -1,42 +1,13 @@
 <script>
-	let search;
-	let result;
+	import Searcher from './Searcher.svelte';
 
-	async function getResult() {
-		const response = await fetch(`https://restcountries.eu/rest/v2/name/${search}`);
-		const responseFormatted = await response.json();
-
-		if (response.ok) {
-			return responseFormatted;
-		} else {
-			const text = await response.text();
-			throw new Error(text);
-		}
-
-		// const data = await response.json();
-		// console.log(data);
-		// result = data;
-	}
-
-	function buttonHandler() {
-		result = getResult();
-	}
+	let data;
 </script>
 
-<style>
-	input {
-		background-color: yellow;
-	}
-</style>
 
-<label>
-	<input bind:value={search}>
-</label>
+<Searcher bind:result={data}/>
 
-<button on:click={buttonHandler}>Search</button>
-
-
-	{#await result}
+	{#await data}
 		<p>Loading...</p>
 	{:then value}
 		{#if value}
@@ -45,6 +16,6 @@
 			<p>population: {value.population}</p>
 		{/if}
 	{:catch error}
-		<p>AAAAAA</p>
+		<p>{error}</p>
 	{/await}
 
