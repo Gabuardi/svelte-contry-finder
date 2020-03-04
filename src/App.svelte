@@ -1,6 +1,7 @@
 <!----------- LOGIC ---------->
 <script>
 	import Searcher from './Searcher.svelte';
+	import Map from './Map.svelte';
 
 	let data;
 </script>
@@ -42,3 +43,4 @@
 	<p>{error}</p>
 {/await}
 
+<Map/>

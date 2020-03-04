@@ -1,4 +1,3 @@
-<!----------- LOGIC ---------->
 <script>
     let search;
     export let result;
