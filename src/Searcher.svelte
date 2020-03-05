@@ -7,7 +7,7 @@
         const responseFormatted = await response.json();
 
         if (response.ok) {
-            return responseFormatted;
+            return responseFormatted[0];
         } else {
             throw new Error(responseFormatted.message);
         }
