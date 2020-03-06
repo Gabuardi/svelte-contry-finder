@@ -2,7 +2,6 @@
 <script>
 	import Logo from './Logo.svelte';
     import Searcher from './Searcher.svelte';
-    import Note from './Note.svelte'
     import DataBox from './DataBox.svelte';
     import Map from './Map.svelte';
 
