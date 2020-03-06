@@ -2,6 +2,10 @@
 <script>
 import { onMount } from 'svelte'
 import mapbox from 'mapbox-gl';
+
+export let lon;
+export let lat;
+
 mapbox.accessToken = 'pk.eyJ1IjoiZ2FidWFyZGkiLCJhIjoiY2s3N3o3Mm93MGRjODNtdGZzOHh3ZThxbCJ9.5iVOCSZWjQp0CUWkIVN1Tw';
 
 onMount(() => {
@@ -13,7 +17,7 @@ onMount(() => {
         new mapbox.Map({
             container: 'map-container',
             style: 'mapbox://styles/mapbox/streets-v9',
-            center: [-84, 10],
+            center: [lon, lat],
             zoom: 3
         });
     };
@@ -24,13 +28,13 @@ onMount(() => {
 
 <style>
     div {
-        width: 400px;
-        height: 400px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid orange;
     }
 </style>
 
 <!----------- TEMPLATE ---------->
-<div id="map-container">
-</div>
+<div id="map-container"></div>
 
 
